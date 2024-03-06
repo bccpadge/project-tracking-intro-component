@@ -1,0 +1,413 @@
+/* css variables */
+:root {
+  --clr-primary-400: 0 100% 68%;
+  --clr-neutral-100: 207 33% 95%;
+  --clr-neutral-200: 231 7% 65%;
+  --clr-neutral-300: 230 11% 40%;
+  --clr-neutral-400: 230 29% 20%;
+
+  --fs-body: 1.125rem;
+  --fw-700: 700;
+  --ff-accent: "Barlow Condensed", sans-serif;
+  --ff-body: "Barlow", sans-serif;
+
+  --wrapper-padding-inline: 1.9375rem;
+  --wrapper-max-width: 70rem;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-size: 100%;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* sometimes referred to as .sr-only */
+.visually-hidden:not(:focus):not(:active):not(:focus-within) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+*:focus-visible {
+  outline: 3px dotted hsl(var(--clr-primary-400));
+  outline-offset: 5px;
+}
+
+/* general styles */
+body {
+  font: var(--fs-body) var(--ff-body);
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+/* utility clesses */
+.flex {
+  display: flex;
+  gap: var(--_gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--_gap, 1rem);
+}
+
+.wrapper {
+  width: min(100% - var(--wrapper-padding-inline), var(--wrapper-max-width));
+  margin-inline: auto;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.text-primary-400 {
+  color: hsl(var(--clr-primary-400));
+}
+
+/* background */
+.background {
+  width: 50%;
+  height: 25rem;
+  background-color: hsl(var(--clr-neutral-100));
+  position: absolute;
+  inset: 0 0 auto auto;
+  z-index: -1;
+  border-radius: 0 0 0 50%;
+}
+
+/* header styles  */
+.header {
+  font-family: var(--ff-accent);
+  height: 6rem;
+  position: relative;
+}
+
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
+}
+
+.navbar__list {
+  --_gap: 2rem;
+}
+
+.navbar__link {
+  font-weight: var(--fw-700);
+  color: hsl(var(--clr-neutral-400));
+  text-decoration: none;
+  display: inline-block;
+  transition: 300ms ease-in-out;
+}
+
+.navbar__link:is(:hover, :focus-visible) {
+  transform: scale(1.13);
+  text-decoration: underline;
+  text-underline-offset: 0.3125rem;
+}
+
+.dot::after {
+  content: "";
+  position: absolute;
+  background-color: hsl(var(--clr-neutral-200));
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  inset: 50% auto 50% auto;
+  transform: translateY(-50%);
+}
+
+.navbar__line {
+  display: none;
+}
+
+/* navbar toggle styles */
+.navbar__toggle {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+/* hero styles */
+section > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(10%) scale(1.1);
+  margin-block: 3rem;
+}
+
+section > :not(img) {
+  padding-block: 3rem;
+  padding-inline: var(--wrapper-padding-inline);
+}
+
+.hero__subtitle {
+  --_gap: 0.625rem;
+  font-size: 0.9375rem;
+  letter-spacing: 0.125rem;
+}
+
+.hero__subtitle span {
+  font-weight: var(--fw-700);
+  font-family: var(--ff-accent);
+  text-transform: uppercase;
+  background-color: hsl(var(--clr-neutral-400));
+  color: hsl(var(--clr-neutral-100));
+  padding-inline: 0.6875rem;
+  border-radius: 1.25rem;
+  letter-spacing: normal;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: var(--fw-700);
+  font-family: var(--ff-accent);
+  color: hsl(var(--clr-neutral-400));
+}
+
+/* hero button styles */
+.hero__btns {
+  font-size: 0.9rem;
+  font-family: var(--ff-accent);
+  letter-spacing: 0.125rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero__btns-red {
+  font-weight: var(--fw-700);
+  padding: 0.5em 0.8em;
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(var(--clr-neutral-400));
+  border-radius: 0.3125rem;
+  transition: 300ms ease-in-out;
+}
+
+.hero__btns-red:is(:hover, :focus-visible) {
+  background-color: hsl(var(--clr-primary-400));
+}
+
+.hero__btns-nofill {
+  color: hsl(var(--clr-neutral-400));
+}
+
+.hero__btns-nofill:is(:hover, :focus-visible) {
+  color: hsl(var(--clr-primary-400));
+}
+
+/* attribution */
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* media query for navigation */
+@media (width <= 50em) {
+  .navbar__toggle {
+    background-image: url("../images/icon-hamburger.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1.5625rem;
+    aspect-ratio: 1;
+  }
+
+  .navbar__toggle[aria-expanded="true"] {
+    background-image: url("../images/icon-close.svg");
+  }
+
+  .navbar__list {
+    --_gap: 1.5rem;
+    --clr-bkg: 0 0% 100%;
+    background-color: hsl(var(--clr-bkg));
+    box-shadow: 0 5px 5px 5px hsla(0, 0%, 22%, 0.2);
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    inset: 6rem 2rem auto;
+    padding: 1.5rem;
+    border-radius: 0.3125rem;
+    transform: translateY(-25rem);
+    z-index: 5;
+  }
+
+  .navbar__list[active] {
+    transform: translateY(0);
+  }
+
+  .dot::after {
+    display: none;
+  }
+
+  .navbar__line {
+    display: inline-block;
+    height: 1px;
+    width: 15.625rem;
+    color: hsl(var(--clr-neutral-100) / 0.5);
+  }
+}
+
+@media (width >= 55em) {
+  section > img {
+    width: 31rem;
+    margin-inline: auto;
+  }
+}
+
+@media (width >= 81.25em) {
+  section {
+    display: grid;
+    grid-template-columns:
+      minmax(var(--wrapper-padding-inline), 1fr)
+      minmax(0, calc(var(--wrapper-max-width) / 2))
+      minmax(0, calc(var(--wrapper-max-width) / 2))
+      minmax(var(--wrapper-padding-inline), 1fr);
+  }
+
+  section > :not(img) {
+    padding-block: 0;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    display: grid;
+    align-content: center;
+    justify-items: start;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  section > img {
+    margin-block: 0;
+    grid-column: 3 / -1;
+    padding-block-start: 5rem;
+    width: inherit;
+  }
+
+  p {
+    max-width: 35ch;
+  }
+}

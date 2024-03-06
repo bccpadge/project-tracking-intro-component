@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Frontend Mentor - Project tracking intro component" />
+  <meta name="keywords" content="HTML, CSS, JavaScript " />
+  <meta name="author" content="Rebecca Padgett" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+  <title>Frontend Mentor | Project tracking intro component</title>
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- css -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- JavaScript -->
+  <script src="./assets/js/script.js" defer></script>
+</head>
+
+<body>
+  <div class="background"></div>
+  <header class="header">
+    <h1 class="visually-hidden">Project tracking intro component</h1>
+    <nav class="flex navbar wrapper">
+      <a href="#">
+        <img src="./assets/images/logo.svg" width="32" height="32" alt="Project tracking logo" />
+      </a>
+      <button class="navbar__toggle" data-js-toggle aria-expanded="false" aria-controls="navbar-list">
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <ul class="flex uppercase navbar__list" id="navbar-list" data-js-list role="list">
+        <li>
+          <a href="#" class="navbar__link">Product</a>
+        </li>
+        <li>
+          <a href="#" class="navbar__link">Features</a>
+        </li>
+        <li>
+          <a href="#" class="navbar__link">Pricing</a>
+        </li>
+        <span class="dot"></span>
+        <hr class="navbar__line">
+        <a href="#" class="navbar__link navbar__link-login text-primary-400">Login</a>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section aria-labelledby="title">
+      <img src="./assets/images/illustration-devices.svg" width="960" height="464" alt="">
+      <div class="grid">
+        <p class="hero__subtitle uppercase">
+          <span>New</span> Monograph Dashboard
+        </p>
+        <h2 class="hero__title uppercase" id="title">
+          Powerful insights into your team</h2>
+        <p class="">
+          Project planning and time tracking for agile teams
+        </p>
+        <div class="hero__btns flex">
+          <button class="hero__btns-red uppercase">Schedule a demo</button>
+          <button class="hero__btns-nofill uppercase">to see a live preview</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
