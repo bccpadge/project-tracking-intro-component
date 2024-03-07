@@ -255,7 +255,7 @@ section > img {
   height: 100%;
   object-fit: cover;
   transform: translate(10%) scale(1.1);
-  margin-block: 3rem;
+  margin-block: 2.5rem;
 }
 
 section > :not(img) {
