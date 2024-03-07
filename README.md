@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor]()
-- Live Site URL: [Github Pages]()
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-project-tracking-intro-component-using-html-css-and-js-7V0oarB4g7)
+- Live Site URL: [Github Pages](https://bccpadge.github.io/project-tracking-intro-component/)
 
 ## My process
 
